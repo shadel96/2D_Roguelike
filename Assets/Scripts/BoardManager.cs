@@ -43,7 +43,7 @@ public class BoardManager : MonoBehaviour
         //starts at 1 and minus 1 tp prevent obstacles against walls
         for (int x = 1; x < columns - 1; x++)
         {
-            for (int y = 1; y < rows - 1; x++)
+            for (int y = 1; y < rows - 1; y++)
             {
                 gridPositions.Add(new Vector3(x, y, 0f));
             }
@@ -57,7 +57,7 @@ public class BoardManager : MonoBehaviour
         //goes from -1 to +1 to go to outer wall
         for (int x = -1; x < columns + 1; x++)
         {
-            for (int y = -1; y < rows + 1; x++)
+            for (int y = -1; y < rows + 1; y++)
             {
 
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
@@ -67,9 +67,9 @@ public class BoardManager : MonoBehaviour
                     toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
                 }
 
-                GameObject Instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity);
+                GameObject objToIsnt = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity);
 
-                Instance.transform.SetParent(boardHolder);
+                objToIsnt.transform.SetParent(boardHolder);
             }
         }
 
