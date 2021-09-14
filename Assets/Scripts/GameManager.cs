@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
-        boardScript.Setup();
+        boardScript.Setup(level);
     }
 
 
